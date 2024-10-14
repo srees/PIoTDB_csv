@@ -209,7 +209,7 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
                 # Output monitoring data for user
                 print(f"Inserted batch {batch_count} of {len(paths)} records.")
                 print(f"Ingest time: {read_time} sec. + Insert time: {insert_time} sec.")
-                percentage = (batch_count + 1) * batch_size / total_lines * 100 / num_fields
+                percentage = round((batch_count + 1) * batch_size / total_lines * 100 / num_fields,2)
                 print(f"Percentage complete: {percentage} %")
 
                 # Reset batch lists for next set
