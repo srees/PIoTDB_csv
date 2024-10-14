@@ -1,6 +1,8 @@
 import csv
 
 def find_duplicate_rows(csv_file_path):
+    dups = 0
+    first_dup = ""
     seen_rows = {}  # Dictionary to keep track of seen rows and their first occurrence
     with open(csv_file_path, newline='') as csvfile:
         reader = csv.reader(csvfile)
@@ -8,9 +10,12 @@ def find_duplicate_rows(csv_file_path):
             row_tuple = tuple(current_row)  # Convert the row to a tuple for hashing
             if row_tuple in seen_rows:
                 first_occurrence = seen_rows[row_tuple]
-                print(f"Duplicate found at row {row_number}, first occurred at row {first_occurrence}")
+                first_dup = f"First duplicate found at row {row_number}, first occurred at row {first_occurrence}"
+                dups += 1
             else:
                 seen_rows[row_tuple] = row_number  # Store the row and its line number
+    print(f"{dups} duplicates found.")
+    print(f"{first_dup}")
 
 if __name__ == "__main__":
     # Prompt for the CSV file path
