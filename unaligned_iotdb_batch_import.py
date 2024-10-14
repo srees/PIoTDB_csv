@@ -151,8 +151,8 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
             # Second to last column as vehicle number (custom for our data)
             vehicle_num = row[-2]
           
-            # Last character of last column as run number (custom for our data)
-            run_number = row[-1][-1]
+            # Last section of last column as run number (custom for our data)
+            run_number = row[-1].split('_')[-1]
 
             # Construct the base path for inserting data
             base_path = f"root.{experiment}.vehicle_{vehicle_num}.{date}.run_{run_number}.can_bus_data"
