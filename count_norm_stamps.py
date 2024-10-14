@@ -6,7 +6,8 @@ def count_unique_first_column(csv_file_path):
         reader = csv.reader(csvfile)
         next(reader)  # Skip the first row (header)
         for row in reader:
-            unique_entries.add(int(round(float(row[0]) * 1000000)))  # Add the first column entry to the set
+            stamp = int(round(float(row[0]) * 1000000))
+            unique_entries.add(f"{stamp}{row[-1]}")  # Add the first column entry to the set
     return len(unique_entries)
 
 if __name__ == "__main__":
