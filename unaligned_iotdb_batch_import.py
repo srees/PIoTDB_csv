@@ -159,6 +159,9 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
 
             # Some of our data have multiple measurements. This script's use case is for unaligned data,
             # so we need to insert a row for each measurement
+
+            # Used in progress indication
+            num_fields = len(field_names)
           
             # Add each field to the batch
             for i, field_name in enumerate(field_names):
@@ -206,8 +209,8 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
                 # Output monitoring data for user
                 print(f"Inserted batch {batch_count} of {len(paths)} records.")
                 print(f"Ingest time: {read_time} sec. + Insert time: {insert_time} sec.")
-                percentage = (batch_count + 1) * batch_size / total_lines
-                print(f"Percentage complete: {percentage}%")
+                percentage = (batch_count + 1) * batch_size / total_lines * 100 / num_fields
+                print(f"Percentage complete: {percentage} %")
 
                 # Reset batch lists for next set
                 paths, timestamps, values, d_types, measurements = [], [], [], [], []
