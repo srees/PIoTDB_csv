@@ -139,6 +139,9 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
         # Track which measurement to use for verification. There can be multiple in the CSV
         verify_measurement = ""
 
+        # Simple cache to avoid unnecessary database calls in the script
+        created_ts = set()
+
         # Iterate through the each row of the CSV file
         for row in csvreader:
           
@@ -161,7 +164,10 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
             for i, field_name in enumerate(field_names):
               
                 # Create time series if it doesn't exist
-                create_time_series(session, base_path, topic, field_name, field_types[i])
+                time_series_path = f"{base_path}.{topic}_{field_name}"
+                if time_series_path not in created_ts:
+                    create_time_series(session, time_series_path, field_types[i])
+                    created_ts.add(time_series_path)
 
                 # Add path and timestamp to batch
                 path = f"{base_path}"
@@ -283,9 +289,7 @@ def create_storage_group_if_not_exists(session, group_path):
         print(f"Error while checking/creating storage group: {e}")
 
 # Function to create a time series with the topic as part of the field name and the specified data type
-def create_time_series(session, base_path, topic, field_name, field_type):
-    time_series_path = f"{base_path}.{topic}_{field_name}"
-
+def create_time_series(session, time_series_path, field_type):
     # Check if the time series already exists
     if not session.check_time_series_exists(time_series_path):
         # Map field_type to IoTDB type
