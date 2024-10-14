@@ -15,7 +15,7 @@ sender_email = ""
 smtp_server = ""
 smtp_port = 465  # 465 for SSL
 login = ""
-password = ""  # Store this more securely!
+smtp_password = ""  # Store this more securely!
 
 # #########################################
 # Imports
@@ -334,7 +334,7 @@ def send_email(subject, body):
     # Send the email
     try:
         server = smtplib.SMTP_SSL(smtp_server, smtp_port)
-        server.login(login, password)
+        server.login(login, smtp_password)
         server.sendmail(sender_email, recipient_email, msg.as_string())
         server.quit()
         print("Email sent successfully!")
