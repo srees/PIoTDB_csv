@@ -383,8 +383,7 @@ def create_time_series(session, time_series_path, field_type):
 # Function to create an aligned time series with the topic as part of the field name and the specified data type
 def create_aligned_time_series(session, time_series_path, measurements, field_types):
     # Check if the time series already exists
-    check_path = f"{time_series_path}_{measurements[0]}"
-    if not session.check_time_series_exists(check_path):
+    if not session.check_time_series_exists(f"{time_series_path}.{measurements[0]}"):
         # Map field_type to IoTDB type
         iotdb_types = [map_field_type(field_type) for field_type in field_types]
         enc_list = [TSEncoding.PLAIN] * len(field_types)
