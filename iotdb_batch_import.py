@@ -176,6 +176,9 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
 
                 # timestamp is in a different location from our non-aligned data
                 # IoTDB requires datetime or long. Our data tracks microseconds as a float, so we need to convert it.
+                # skip this row if timestamp is missing
+                if not row[8].strip():
+                    continue
                 timestamp = int(round(float(row[8]) * 1000000))
 
                 # Construct the base path for inserting data
