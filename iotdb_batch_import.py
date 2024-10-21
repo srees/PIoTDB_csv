@@ -294,7 +294,10 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
     # Default configuration in IoTDB does not allow duplicate measurements for a given timestamp.
     # So this ends up being rerun safe and still gives how many records are actually in the database.
     # We return this so it can go out in the email notification.
-    verify_count = count_records_for_date(session, date, verify_measurement, experiment)
+    if align:
+        verify_count = count_records_for_date(session, verify_measurement, experiment)
+    else:
+        verify_count = count_records_for_date(session, verify_measurement, experiment, date)
 
     # Clean up database connection
     session.close()
@@ -310,9 +313,13 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
 # ##################################
 
 # Verification routine
-def count_records_for_date(session, date, measurement, experiment):
+def count_records_for_date(session, measurement, experiment, date='*'):
     # Prepare the SQL query using the date parameter
-    query = f"SELECT COUNT({measurement}) FROM root.{experiment}.*.{date}.*.can_bus_data"
+    if date == '*':
+        end_node = 'gps_data'
+    else:
+        end_node = 'can_bus_data'
+    query = f"SELECT COUNT({measurement}) FROM root.{experiment}.*.{date}.*.{end_node}"
 
     try:
         # Execute the query
@@ -337,7 +344,6 @@ def count_records_for_date(session, date, measurement, experiment):
 
     except Exception as e:
         print(f"Error querying IoTDB: {e}")
-
 
 # Function to connect to IoTDB instance
 def connect_iotdb():
