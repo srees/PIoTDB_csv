@@ -1,5 +1,6 @@
 # PIoTDB_csv
-Authors: Stephen Rees, Jonathan Sprinkle License: BSD Copyright (c) 2024, Vanderbilt University
+Authors: Stephen Rees, Jonathan Sprinkle
+License: BSD Copyright (c) 2024, Vanderbilt University
 
 Repo contains a collection of work used over the course of an independent study on implementing IoTDB.
 Starting condition was a series of CSV files forming a dataset that needed to be imported. After import was
