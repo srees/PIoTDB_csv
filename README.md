@@ -30,3 +30,5 @@ records, as multiple measurements can land on the same timestamp.
 * v1_iotdb_import.py was my first working example of getting data into IoTDB from a CSV, one row at a time (slow)
 * verify.py was an initial cut at being able to count/verify the number of records for a given time-series in IoTDB. This functionality
   was included in the final iotdb_batch_import.py file.
+
+  Database credentials in this repo are set to the defaults for IoTDB - update as needed.
