@@ -32,3 +32,4 @@ records, as multiple measurements can land on the same timestamp.
   was included in the final iotdb_batch_import.py file.
 
   Database credentials in this repo are set to the defaults for IoTDB - update as needed.
+  On-site or VPN required for accessing CIRCLES data.
