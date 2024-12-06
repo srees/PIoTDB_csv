@@ -33,5 +33,5 @@ records, as multiple measurements can land on the same timestamp.
 * verify.py was an initial cut at being able to count/verify the number of records for a given time-series in IoTDB. This functionality
   was included in the final iotdb_batch_import.py file.
 
-  Database credentials in this repo are set to the defaults for IoTDB - update as needed.
-  On-site or VPN required for accessing CIRCLES data.
+Database credentials in this repo are set to the defaults for IoTDB - update as needed.
+On-site or VPN required for accessing CIRCLES data.
