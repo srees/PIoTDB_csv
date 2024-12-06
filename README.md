@@ -22,7 +22,7 @@ database structure.
 
 * count_norm_stamps.py counts the number of unique timestamps (first column) in a CSV. Note this does not reflect unique
 records, as multiple measurements can land on the same timestamp.
-
+* dash.py is a starting point for developing an interactive plot for exploring data. This is just a skeleton and needs fleshing out.
 * find_any_dups.py attempts to locate duplicate rows in a CSV that may not be sequential
 * find_norm_seq_dups.py attempts to locate sequential duplicate rows based on the first 5 fields while normalizing the systime field
 * find_seq_dups.py attempts to locate sequential duplicate rows
