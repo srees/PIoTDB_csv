@@ -318,11 +318,7 @@ def insert_can_data(filepath, experiment, date, topic, field_names, field_types,
 # Verification routine
 def count_records_for_date(session, measurement, experiment, date='*'):
     # Prepare the SQL query using the date parameter
-    if date == '*':
-        end_node = 'gps_data'
-    else:
-        end_node = 'can_bus_data'
-    query = f"SELECT COUNT({measurement}) FROM root.{experiment}.*.{date}.*.{end_node}"
+    query = f"SELECT COUNT({measurement}) FROM root.{experiment}.*.{date}.*"
 
     try:
         # Execute the query
