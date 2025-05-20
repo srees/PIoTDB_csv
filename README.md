@@ -1,5 +1,6 @@
 # PIoTDB_csv
 Authors: Stephen Rees, Jonathan Sprinkle
+Contributors: See AUTHORS file
 
 License: BSD Copyright (c) 2024, Vanderbilt University
 
@@ -36,3 +37,6 @@ records, as multiple measurements can land on the same timestamp.
 
 Database credentials in this repo are set to the defaults for IoTDB - update as needed.
 On-site or VPN required for accessing CIRCLES data.
+
+Related paper can be found at https://doi.org/10.1145/3722573.3727833
+Presentation of paper is the movie file in this repo.
