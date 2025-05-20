@@ -23,7 +23,7 @@ database structure.
 
 * count_norm_stamps.py counts the number of unique timestamps (first column) in a CSV. Note this does not reflect unique
 records, as multiple measurements can land on the same timestamp.
-* dash.py is a starting point for developing an interactive plot for exploring data. This is just a skeleton and needs fleshing out.
+* dash.py is a starting point for developing an interactive plot for exploring data. This is just a skeleton and needs fleshing out. Video of this running can be found at https://youtu.be/weDuBX7xbQg
 * find_any_dups.py attempts to locate duplicate rows in a CSV that may not be sequential
 * find_norm_seq_dups.py attempts to locate sequential duplicate rows based on the first 5 fields while normalizing the systime field
 * find_seq_dups.py attempts to locate sequential duplicate rows
@@ -39,4 +39,5 @@ Database credentials in this repo are set to the defaults for IoTDB - update as 
 On-site or VPN required for accessing CIRCLES data.
 
 Related paper can be found at https://doi.org/10.1145/3722573.3727833
-Presentation of paper is the movie file in this repo.
+Presentation of paper can be found at https://youtu.be/ra-nP74k8Q0
+Slides are in Rees_DESTION_2025.pptx
