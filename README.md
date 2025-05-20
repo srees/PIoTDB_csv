@@ -39,6 +39,7 @@ Database credentials in this repo are set to the defaults for IoTDB - update as 
 On-site or VPN required for accessing CIRCLES data.
 
 Related paper can be found at https://doi.org/10.1145/3722573.3727833
+
 Presentation of paper can be found at https://youtu.be/ra-nP74k8Q0
 
 Slides are in Rees_DESTION_2025.pptx
